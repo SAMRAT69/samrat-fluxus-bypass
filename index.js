@@ -3,7 +3,7 @@ const axios = require("axios");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get("/delta/bypass", async (req, res) => {
+app.get("/fluxus/bypass", async (req, res) => {
   const { link } = req.query;
   if (!link) {
     return res.status(400).json({ warning: "Url Needed, Samrat API" });
@@ -11,13 +11,13 @@ app.get("/delta/bypass", async (req, res) => {
   const StartTime = Date.now();
   try {
     let result;
-    if (link.startsWith("https://gateway.platoboost.com/a/8?id=")) {
+    if (link.startsWith("https://flux.li/android/external/start.php?HWID=")) {
       try {
-        const DeltaAuthResponse = await axios.get(
+        const FluxusAuthResponse = await axios.get(
           `https://fluxus-bypass-orcin.vercel.app/api/fluxus?link=${encodeURIComponent(link)}`
         );
-        if (DeltaAuthResponse.data.ket) {
-          result = DeltaAuthResponse.data.key;
+        if (FluxusAuthResponse.data.ket) {
+          result = FluxusAuthResponse.data.key;
           console.log("Success:", result);
         } else {
           return res.status(500).json({
@@ -32,7 +32,7 @@ app.get("/delta/bypass", async (req, res) => {
       }
     } else {
       return res.status(400).json({
-        Note: "Url not supported to bypass Only Delta https://gateway.platoboost.com/a/8?id= like this",
+        Note: "Url not supported to bypass Only Fluxus  like this https://flux.li/android/external/start.php?HWID=",
         Message: "SAMRAT API",
       });
     }
