@@ -14,7 +14,7 @@ app.get("/delta/bypass", async (req, res) => {
     if (link.startsWith("https://gateway.platoboost.com/a/8?id=")) {
       try {
         const DeltaAuthResponse = await axios.get(
-          `http://fi1.bot-hosting.net:6780/api/bypass?link=${encodeURIComponent(link)}`
+          `https://fluxus-bypass-orcin.vercel.app/api/fluxus?link=${encodeURIComponent(link)}`
         );
         if (DeltaAuthResponse.data.ket) {
           result = DeltaAuthResponse.data.key;
