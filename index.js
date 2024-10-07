@@ -27,7 +27,7 @@ app.get("/fluxus/bypass", async (req, res) => {
       } catch (error) {
         console.error("Failed to bypass url", error.message);
         return res.status(500).json({
-          error: "Error fetching delta url",
+          error: "Error fetching url",
         });
       }
     } else {
