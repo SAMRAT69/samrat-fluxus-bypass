@@ -16,7 +16,7 @@ app.get("/fluxus/bypass", async (req, res) => {
         const FluxusAuthResponse = await axios.get(
           `https://fluxus-bypass-orcin.vercel.app/api/fluxus?link=${encodeURIComponent(link)}`
         );
-        if (FluxusAuthResponse.data.ket) {
+        if (FluxusAuthResponse.data.key) {
           result = FluxusAuthResponse.data.key;
           console.log("Success:", result);
         } else {
